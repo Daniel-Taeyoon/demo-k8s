@@ -1,37 +1,18 @@
-#apiVersion: networking.k8s.io/v1
-#kind: Ingress
-#metadata:
-#  name: example-ingress
-#  annotations:
-#    ingress.kubernetes.io/rewrite-target: /
-#spec:
-#  rules:
-##    - host: test.k8s.com     // host를 명시하지 않으면 ip로 연결
-#    - http:
-#        paths:
-#          - path: /k8sTest1
-#            pathType: Prefix
-#            backend:
-#              service:
-#                name: demo-devops
-#                port:
-#                  number: 8080
-
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  name: minimal-ingress
+  name: example-ingress
   annotations:
-    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/rewrite-target: /$1
 spec:
-  ingressClassName: nginx-example
   rules:
-    - http:
+    - host: hello-world.info
+      http:
         paths:
-          - path: /testpath
+          - path: /testWeb
             pathType: Prefix
             backend:
               service:
-                name: demo-devops
+                name: web
                 port:
                   number: 8080

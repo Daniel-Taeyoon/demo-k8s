@@ -12,6 +12,13 @@ spec:
             pathType: Prefix
             backend:
               service:
-                name: service-demo-devops
+                name: service-demo-devops-v1
+                port:
+                  number: 8080
+          - path: /v2(/|$)(.*)
+            pathType: Prefix
+            backend:
+              service:
+                name: service-demo-devops-v2
                 port:
                   number: 8080

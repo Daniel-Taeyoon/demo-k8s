@@ -5,12 +5,12 @@ metadata:
 spec:
   selector:
     app: app-demo-devops-v1
+  type: NodePort
   ports:
     - name: http
       protocol: TCP
       port: 8080
       targetPort: 8080
-  type: NodePort
 ---
 apiVersion: v1
 kind: Service
@@ -19,12 +19,12 @@ metadata:
 spec:
   selector:
     app: app-demo-devops-v2
+  type: NodePort
   ports:
     - name: http
       protocol: TCP
       port: 8080
       targetPort: 8080
-  type: NodePort
 ---
 apiVersion: v1
 kind: Service
@@ -33,6 +33,7 @@ metadata:
 spec:
   selector:
     app: redis
+  type: NodePort
   ports:
     - name: redis
       protocol: TCP
